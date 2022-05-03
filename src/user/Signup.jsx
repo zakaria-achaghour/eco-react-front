@@ -33,9 +33,9 @@ const Signup = () => {
                navigate('/signin')
             }
         })
-        .catch(error =>{
-            notify('error','Internal Server Error')
-        })
+        .catch(error =>
+            notify('error',error,'Internal Server Error')
+        )
 
      }
   return (
