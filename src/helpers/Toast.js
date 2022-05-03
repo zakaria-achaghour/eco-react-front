@@ -12,4 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
        toast.warn(message,{position: toast.POSITION.TOP_RIGHT,autoClose:8000,theme: "colored"})
   }
+  if(type === 'info'){
+
+   toast.info(message,{position: toast.POSITION.TOP_RIGHT,autoClose:8000,theme: "colored"})
+}
 }
