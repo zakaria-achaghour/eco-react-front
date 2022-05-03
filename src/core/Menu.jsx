@@ -3,9 +3,12 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { API_URL } from "../config";
+import { isAuthenticated } from "../helpers/IsAuthenticated";
 import { notify } from "../helpers/Toast";
 const Menu = () => {
     const navigate = useNavigate();
+    const {user: {role}} = isAuthenticated();
+
     const signout = () =>{
         fetch(`${API_URL}/signout`)
         .then(() => {
@@ -17,13 +20,7 @@ const Menu = () => {
 
         })
     }
-    const isAuthenticated = () => {
-        const jwt = localStorage.getItem('jwt_info');
-        if(jwt){
-            return JSON.parse(jwt)
-        }
-        return false
-    }
+   
   return (
   
     <Navbar bg="dark" variant={"dark"} expand="lg" fixed="top" >
@@ -36,8 +33,11 @@ const Menu = () => {
             navbarScroll
         >
             {isAuthenticated() && (
-            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-            )}
+                <>
+                    <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                    <Nav.Link as={NavLink} to={role?'/admin/dashboard' : 'dashboard'}>Dashboard</Nav.Link>
+                </>
+             )} 
         </Nav>
         <Nav
             className="ms-auto my-2 my-lg-0 mx-5"
