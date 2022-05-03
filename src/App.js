@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import { Container } from 'reactstrap';
 import Home from './core/Home';
 import Layout from './core/Layout';
@@ -17,17 +18,17 @@ const App = () => {
   
     <Menu />
 
+      <ToastContainer />
 
   
     
  
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />}/>
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />}/>
       </Routes> 
  
-     
 
       
     </div>
