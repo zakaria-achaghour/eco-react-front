@@ -1,14 +1,15 @@
 import React from 'react';
 import {
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
-import { Container } from 'reactstrap';
 import Home from './core/Home';
-import Layout from './core/Layout';
 import Menu from './core/Menu';
+import AdminRoute from './Routes/AdminRoute';
+import PrivateRoute from './Routes/PrivateRoute';
+import AdminDashboard from './user/AdminDashboard';
+import Dashboard from './user/Dashboard';
 
 import Signin from './user/Signin';
 import Signup from './user/Signup';
@@ -24,7 +25,9 @@ const App = () => {
     
  
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
+        <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>}/>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />}/>
       </Routes> 
