@@ -4,6 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import AddCategory from './Admin/Category/AddCategory';
 import Home from './core/Home';
 import Menu from './core/Menu';
 import AdminRoute from './Routes/AdminRoute';
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>}/>
+        <Route path="/admin/category/create" element={<AdminRoute><AddCategory /></AdminRoute>}/>
+
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />}/>
       </Routes> 
