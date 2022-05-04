@@ -19,10 +19,10 @@ const AdminDashboard = () => {
                         <CardHeader>Admin Links</CardHeader>
                             <ul className='list-group list-group-flush'>
                                 <li className='list-group-item'>
-                                    <Link className='nav-link' to='/category/create' >Create Category</Link> 
+                                    <Link className='nav-link' to='/admin/category/create' >Create Category</Link> 
                                 </li>
                                 <li className='list-group-item'>
-                                <Link className='nav-link' to='/product/create' >Create Product</Link> 
+                                <Link className='nav-link' to='/admin/product/create' >Create Product</Link> 
 
                                 </li>
                             </ul>
