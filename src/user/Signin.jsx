@@ -36,7 +36,7 @@ const Signin = () => {
             }
         })
         .catch(error =>
-            notify('error',error,'Internal Server Error')
+            notify('error','Internal Server Error')
         )
 
      }

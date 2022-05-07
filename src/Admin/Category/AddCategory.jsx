@@ -2,10 +2,13 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react'
 import { Alert, Button, Col, FormGroup, Label, Row } from 'reactstrap';
 import { API_URL } from '../../config';
+import * as Yup from 'yup'
 import Layout from '../../core/Layout'
 import { isAuthenticated } from '../../helpers/IsAuthenticated';
 import { notify } from '../../helpers/Toast';
+import { useNavigate } from 'react-router-dom';
 const AddCategory = () => {
+    const navigate = useNavigate();
     const initialValues = { name: '' }
     const validationSchema = Yup.object({
         name: Yup.string().required(),
@@ -31,9 +34,9 @@ const AddCategory = () => {
                navigate('/admin/dashboard')
             }
         })
-        .catch(error =>
-            notify('error',error,'Internal Server Error')
-        )
+        .catch(error =>{
+            console.log(error)
+            notify('error','Internal Server Error')})
      }
     return (
         <div>

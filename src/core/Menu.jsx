@@ -7,7 +7,7 @@ import { isAuthenticated } from "../helpers/IsAuthenticated";
 import { notify } from "../helpers/Toast";
 const Menu = () => {
     const navigate = useNavigate();
-    const {user: {role}} = isAuthenticated();
+    const {user} = isAuthenticated();
 
     const signout = () =>{
         fetch(`${API_URL}/signout`)
@@ -17,7 +17,7 @@ const Menu = () => {
             navigate('/signin',{replace: true})
         })
         .catch(err => {
-
+            console.log(err);
         })
     }
    
@@ -35,7 +35,7 @@ const Menu = () => {
             {isAuthenticated() && (
                 <>
                     <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                    <Nav.Link as={NavLink} to={role?'/admin/dashboard' : 'dashboard'}>Dashboard</Nav.Link>
+                    <Nav.Link as={NavLink} to={user.role?'/admin/dashboard' : 'dashboard'}>Dashboard</Nav.Link>
                 </>
              )} 
         </Nav>
