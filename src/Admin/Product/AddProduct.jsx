@@ -7,6 +7,7 @@ import { isAuthenticated } from '../../helpers/IsAuthenticated';
 import { notify } from '../../helpers/Toast';
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom';
+import { getCategories } from '../../core/ApiCore';
 
 const AddProduct = () => {
     const navigate = useNavigate();
@@ -62,14 +63,7 @@ const AddProduct = () => {
      }
 
      useEffect(() => {
-        fetch(`${API_URL}/categories`)
-         .then(res =>res.json() )
-        .then(res =>{
-             setCategories(res.categories);
-        })
-        .catch(error =>
-            notify('error','Internal Server Error')
-        )
+      getCategories().then(categories => setCategories(categories))
      }, []);
     return (
         <div>

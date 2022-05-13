@@ -8,6 +8,7 @@ import AddCategory from './Admin/Category/AddCategory';
 import AddProduct from './Admin/Product/AddProduct';
 import Home from './core/Home';
 import Menu from './core/Menu';
+import Shop from './core/Shop';
 import AdminRoute from './Routes/AdminRoute';
 import PrivateRoute from './Routes/PrivateRoute';
 import AdminDashboard from './user/AdminDashboard';
@@ -28,6 +29,8 @@ const App = () => {
  
       <Routes>
         <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+        <Route path="/shop" element={<PrivateRoute><Shop
+         /></PrivateRoute>} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>}/>
         <Route path="/admin/category/create" element={<AdminRoute><AddCategory /></AdminRoute>}/>

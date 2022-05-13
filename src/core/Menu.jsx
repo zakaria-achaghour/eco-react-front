@@ -35,6 +35,7 @@ const Menu = () => {
             {isAuthenticated() && (
                 <>
                     <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                    <Nav.Link as={NavLink} to="/shop">Shop</Nav.Link>
                     <Nav.Link as={NavLink} to={user.role?'/admin/dashboard' : 'dashboard'}>Dashboard</Nav.Link>
                 </>
              )} 
