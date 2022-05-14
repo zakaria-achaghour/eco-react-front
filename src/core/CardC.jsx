@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Badge, Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap'
 import ShowImage from './ShowImage'
 
-const CardC = ({product}) => {
+const CardC = ({product,showViewBtn = true}) => {
   return (
     <div>
         <Card >
@@ -22,11 +22,12 @@ const CardC = ({product}) => {
                 <Row>
                   
                   <Col md={6}>
-
-                <Link to='' >
+                  {showViewBtn && (
+                <Link to={`/product/${product._id}`} >
               <Button   color={'warning'}   >{'View'}</Button>
 
               </Link>
+                  )}
                   </Col>
                   <Col md={6}>
               <Button  color={'success'}   >{'Add To Cart'}</Button>

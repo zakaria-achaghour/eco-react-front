@@ -1,8 +1,9 @@
 import { API_URL } from "../config"
 import { notify } from "../helpers/Toast"
-
-export const getProducts = (sortBy, order, limit) =>{
-   return fetch(`${API_URL}/products?sortBy=${sortBy}&order=${order}&limit=${limit}`)
+import queryString from 'query-string'
+export const getProducts = (params) =>{
+    let query = queryString.stringify(params)
+   return fetch(`${API_URL}/products?${query}`)
     .then(res =>res.json())
     .then(res =>res.products)
     .catch(err => console.log(err))
@@ -41,3 +42,29 @@ export const filterProducts = (skip, limit, filters) => {
         }
      )
   }
+
+
+  export const getProduct = (id) => {
+    return  fetch(`${API_URL}/products/${id}`,{
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type":"application/json"
+        }
+    })
+      .then(res =>res.json() )
+     .then(res =>res.product)
+     .catch(error =>{
+         notify('error','Internal Server Error')
+         console.log(error)
+     }
+     ) 
+  }
+  export const relatedProducts = (id) => {
+
+    return fetch(`${API_URL}/products/related/${id}`)
+      .then(res => res.json())
+      .then(res => res.products)
+      .catch(err => console.error(err))
+    
+    }
