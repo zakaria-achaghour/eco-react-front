@@ -1,10 +1,13 @@
 
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Badge, Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap'
+import { addToCart } from '../redux/actions/cartActions'
 import ShowImage from './ShowImage'
 
 const CardC = ({product,showViewBtn = true}) => {
+  const dispatch = useDispatch();
   return (
     <div>
         <Card >
@@ -30,7 +33,7 @@ const CardC = ({product,showViewBtn = true}) => {
                   )}
                   </Col>
                   <Col md={6}>
-              <Button  color={'success'}   >{'Add To Cart'}</Button>
+              <Button  color={'success'} onClick={() => dispatch(addToCart(product))}   >{'Add To Cart'}</Button>
                     </Col>
                 </Row>
 

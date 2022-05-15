@@ -6,6 +6,7 @@ import {
 import { ToastContainer } from 'react-toastify';
 import AddCategory from './Admin/Category/AddCategory';
 import AddProduct from './Admin/Product/AddProduct';
+import Cart from './core/Cart';
 import Home from './core/Home';
 import Menu from './core/Menu';
 import Product from './core/Product';
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/admin/category/create" element={<AdminRoute><AddCategory /></AdminRoute>}/>
         <Route path="/admin/product/create" element={<AdminRoute><AddProduct /></AdminRoute>}/>
         <Route path="/product/:id" element={<Product />}/>
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />}/>
