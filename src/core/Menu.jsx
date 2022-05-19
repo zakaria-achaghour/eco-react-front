@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { API_URL } from "../config";
 import { isAuthenticated } from "../helpers/IsAuthenticated";
@@ -8,7 +9,7 @@ import { notify } from "../helpers/Toast";
 const Menu = () => {
     const navigate = useNavigate();
     const {user} = isAuthenticated();
-
+    let countItem = useSelector(state => state.cart.count)
     const signout = () =>{
         fetch(`${API_URL}/signout`)
         .then(() => {
@@ -51,9 +52,14 @@ const Menu = () => {
                 <Nav.Link as={NavLink} to="/signup">signup</Nav.Link>
                 </>
             )}
+            <Nav.Link  as={NavLink} to="/cart">
+                Cart <span className="badge bdge-warning">{ countItem }</span>
+            </Nav.Link>
 
             {isAuthenticated() && (
+                <>
             <Nav.Link  onClick={signout}>signout</Nav.Link>
+            </>
             )}
 
         </Nav>
