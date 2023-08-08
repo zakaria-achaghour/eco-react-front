@@ -41,7 +41,7 @@ const Signup = () => {
   return (
     <Layout 
             title="Signup page" 
-            description="SignUp Node react Ecommerce app" 
+            description="SignUp Ecommerce app" 
             className="container">
     <Row  className="justify-content-md-center">
          <Col md="6">

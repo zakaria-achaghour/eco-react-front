@@ -43,7 +43,7 @@ const Signin = () => {
   return (
     <Layout 
             title="Signin page" 
-            description="SignIn Node react Ecommerce app" 
+            description="SignIn Ecommerce app" 
             className="container">
     <Row  className="justify-content-md-center">
          <Col md="6">

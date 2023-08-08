@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import AddCategory from './Admin/Category/AddCategory';
+import ListOrder from './Admin/Order/ListOrder';
 import AddProduct from './Admin/Product/AddProduct';
 import Cart from './core/Cart';
 import Home from './core/Home';
@@ -36,6 +37,8 @@ const App = () => {
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>}/>
         <Route path="/admin/category/create" element={<AdminRoute><AddCategory /></AdminRoute>}/>
+        <Route path="/admin/orders" element={<AdminRoute><ListOrder /></AdminRoute>}/>
+
         <Route path="/admin/product/create" element={<AdminRoute><AddProduct /></AdminRoute>}/>
         <Route path="/product/:id" element={<Product />}/>
         <Route path="/cart" element={<Cart />} />

@@ -51,11 +51,12 @@ const Checkout = ({products}) => {
             }
             processPayment(userId,token, paymentData)
             .then(res => {
+                console.log("eeeee")
 
                 console.log(res)
                 let orderData = {
                     products,
-                    transactionId: res.transaction.id,
+                    transaction_id: res.transaction.id,
                     amount: res.transaction.amount,
                     address: deleveryAddresss
                 }
